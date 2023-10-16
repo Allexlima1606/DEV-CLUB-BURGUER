@@ -5,8 +5,8 @@ class ProductController {
   async store(request, response) {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
-      prince: Yup.number().required(),
-      categary: Yup.string().required(),
+      price: Yup.number().required(),
+      category: Yup.string().required(),
     })
 
     try {
