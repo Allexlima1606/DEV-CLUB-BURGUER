@@ -3,9 +3,9 @@ import { v4 } from 'uuid'
 import { extname, resolve } from 'path'
 
 export default {
-  Storage: multer.diskStorage({
+  storage: multer.diskStorage({
     destination: resolve(__dirname, '..', '..', 'uploads'),
-    filename: (request, file, callback) => {
+    filename: (required, file, callback) => {
       return callback(null, v4() + extname(file.originalname))
     },
   }),

@@ -1,8 +1,7 @@
 import * as Yup from 'yup'
 import Product from '../models/Product'
-
 class ProductController {
-  async store(request, response) {
+  async store(required, response) {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
       price: Yup.number().required(),
@@ -10,30 +9,26 @@ class ProductController {
     })
 
     try {
-      await schema.validateSync(request.body, { abortEarly: false })
+      await schema.validateSync(required.body, { abortEarly: false })
     } catch (err) {
       return response.status(400).json({ error: err.errors })
     }
+    const { filename: path } = required.file
+    const { name, price, category } = required.body
 
-    const { filename: path } = request.file
-    const { name, price, category } = request.body
-
-    // eslint-disable-next-line no-unused-vars
     const product = await Product.create({
       name,
       price,
       category,
       path,
     })
-
-    return response.json(Product)
+    return response.json(product)
   }
 
-  async index(request, response) {
-    // eslint-disable-next-line no-unused-vars
-    const product = await Product.findAll()
+  async index(required, response) {
+    const products = await Product.findAll()
 
-    return response.json()
+    return response.json(products)
   }
 }
 
