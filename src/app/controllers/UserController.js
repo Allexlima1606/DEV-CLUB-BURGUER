@@ -9,6 +9,7 @@ class UserController {
         name: Yup.string().required(),
         email: Yup.string().email().required(),
         password: Yup.string().required().min(6),
+        admin: Yup.boolean(),
       })
 
       if (!(await schema.isValid(request.body))) {
@@ -16,7 +17,7 @@ class UserController {
           .status(400)
           .json({ error: 'Make sure your data is correct' })
       }
-      const { email, password, name } = request.body
+      const { name, email, password, admin } = request.body
 
       const userExists = await User.findOne({
         where: { email },
@@ -28,14 +29,15 @@ class UserController {
 
       const user = {
         id: v4(),
+        name,
         email,
         password,
-        name,
+        admin,
       }
 
       await User.create(user)
 
-      return response.json(user)
+      return response.json({ id: user.id, name, email, admin })
     } catch (err) {
       return response.status(500).json({ error: 'Internal server error' })
     }

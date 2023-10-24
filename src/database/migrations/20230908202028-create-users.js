@@ -25,7 +25,7 @@ module.exports = {
       admin: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
-        allowNull: true,
+        allowNull: false,
       },
       created_at: {
         type: Sequelize.DATE,
@@ -38,7 +38,7 @@ module.exports = {
     })
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async (queryInterface) => {
     await queryInterface.dropTable('users')
   },
 }

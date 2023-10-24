@@ -3,30 +3,30 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ["standard", "prettier"],
+  extends: ['standard', 'prettier'],
   overrides: [
     {
       env: {
         node: true,
       },
-      files: [".eslintrc.{js,cjs}"],
+      files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
-        sourceType: "script",
+        sourceType: 'script',
       },
     },
   ],
-  plugins: ["prettier"],
+  plugins: ['prettier'],
   parserOptions: {
     ecmaVersion: 12,
-    sourceType: "module",
+    sourceType: 'module',
   },
   rules: {
-    camelcase: "off",
-    "prettier/prettier": [
-      "error",
+    camelcase: 'off',
+    'prettier/prettier': [
+      'error',
       {
-        endOfLine: "auto",
+        endOfLine: 'auto',
       },
     ],
   },
-};
+}
