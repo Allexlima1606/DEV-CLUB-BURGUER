@@ -7,9 +7,9 @@ class ProductController {
   async store(request, response) {
     try {
       const schema = Yup.object().shape({
-        name: Yup.string().required(),
-        price: Yup.number().required(),
-        category_id: Yup.number().required(),
+        name: Yup.string(),
+        price: Yup.number(),
+        category_id: Yup.number(),
         offer: Yup.boolean(),
       })
 

@@ -4,17 +4,6 @@ module.exports = {
     node: true,
   },
   extends: ['standard', 'prettier'],
-  overrides: [
-    {
-      env: {
-        node: true,
-      },
-      files: ['.eslintrc.{js,cjs}'],
-      parserOptions: {
-        sourceType: 'script',
-      },
-    },
-  ],
   plugins: ['prettier'],
   parserOptions: {
     ecmaVersion: 12,
@@ -22,11 +11,5 @@ module.exports = {
   },
   rules: {
     camelcase: 'off',
-    'prettier/prettier': [
-      'error',
-      {
-        endOfLine: 'auto',
-      },
-    ],
   },
 }
