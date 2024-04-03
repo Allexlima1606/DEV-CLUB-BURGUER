@@ -1,15 +1,16 @@
 'use strict'
 
+/* @type {import('sequelize-cli').Migration} */
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.addColumn('products', 'offer', {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.addColumn('Products', 'offer', {      
       type: Sequelize.BOOLEAN,
       defaultValue: false,
-      allowNull: false,
+      allowNull: false
     })
   },
 
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.removeColumn('products', 'offer')
-  },
+  async down(queryInterface, Sequelize) {
+    await queryInterface.removeColumn('Products', 'offer')
+  }
 }
