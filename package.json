@@ -39,7 +39,7 @@
     "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-promise": "^6.0.0",
-    "nodemon": "^3.0.1",
+    "nodemon": "^3.1.0",
     "prettier": "^3.0.3",
     "sequelize-cli": "^6.6.1",
     "sucrase": "^3.34.0"
